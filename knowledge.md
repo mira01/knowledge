@@ -66,3 +66,8 @@ ct:run_test([{name, "ct"}, {sys_config, "config/sys.config"}, {readable, true}, 
 ```
 
 Note the passed {include, "include"}: it is path to include directory, which is needed to sucessfull compilation of tests.
+
+Git
+===
+
+* get untracked files in repo with `alias untracked='git status --porcelain | grep -e '\''^?? '\'' | sed -e '\''s/^?? //'\'`. Then use it with xargs, eg. `untracked | xargs rm` to delete all untracked files
