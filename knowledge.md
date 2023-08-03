@@ -53,3 +53,16 @@ Common Tests
 
 While testing the library application via common tests, it is needed to run
 `application:ensure_all_started` first, even though it is not needed when playing in shell.
+
+Running Common Tests from Erlang shell
+--------------------------------------
+
+To speed up running tests, it's possible to run common tests from running erlang shell. The advantage is that all buiding is done once. Run `rebar3 as test shell` and then `ct:run_test(Opts)` where Opts is build from cli argument in following way [https://www.erlang.org/doc/apps/common_test/run_test_chapter#running-tests-from-the-erlang-shell-or-from-an-erlang-program](https://www.erlang.org/doc/apps/common_test/run_test_chapter#running-tests-from-the-erlang-shell-or-from-an-erlang-program). Put simply: it is a list where single cli param is passed as atom and cli params taking argument are tuples with atom key.
+
+Example:
+
+```
+ct:run_test([{name, "ct"}, {sys_config, "config/sys.config"}, {readable, true}, cover, {verbose, true}, {logdir, "log/tests"}, {include, "include"}]).
+```
+
+Note the passed {include, "include"}: it is path to include directory, which is needed to sucessfull compilation of tests.
