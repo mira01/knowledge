@@ -26,7 +26,8 @@ rebar3 tar
 Then open relup file and check instructions; If needed, use following code to reorder instuctions.
 In this example instruction ```{apply, {...}}``` will be run directly after ```{add_module}```
 
-``` erlang rebar.config
+```
+% rebar.config
 {sappan, [
     {post_instrs_upgrade, [
         {{add_module, cfg_storage, []}, [
