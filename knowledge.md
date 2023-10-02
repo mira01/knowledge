@@ -84,3 +84,15 @@ Troubleshooting "Cannot move out of borrowing context" - Use one of following:
   * Option::take / Option::replace
   * Option::as_ref
   * Option::as_deref
+
+Documentation
+=============
+
+What do I want in README: 
+
+    * What does the repository code do
+    * Why / when do I need it
+    * How to run / install it
+    * *Examples* of common use cases
+    * Links to another related repositories
+
