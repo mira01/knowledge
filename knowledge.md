@@ -74,3 +74,13 @@ Git
 ===
 
 * get untracked files in repo with `alias untracked='git status --porcelain | grep -e '\''^?? '\'' | sed -e '\''s/^?? //'\'`. Then use it with xargs, eg. `untracked | xargs rm` to delete all untracked files
+
+Rust
+====
+
+Troubleshooting "Cannot move out of borrowing context" - Use one of following:
+
+  * std::mem::replace - 
+  * Option::take / Option::replace
+  * Option::as_ref
+  * Option::as_deref
