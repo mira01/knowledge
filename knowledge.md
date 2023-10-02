@@ -67,6 +67,9 @@ ct:run_test([{name, "ct"}, {sys_config, "config/sys.config"}, {readable, true}, 
 
 Note the passed {include, "include"}: it is path to include directory, which is needed to sucessfull compilation of tests.
 
+It is also possible to pass some or all of: `{suite, "project_SUITE"}, {group, some_group}, {testcase, example_testcase}` to run desired test cases.
+Note that passing _testcase_ without _group_ will cause that `innit_per_group` *will not be called*.
+
 Git
 ===
 
