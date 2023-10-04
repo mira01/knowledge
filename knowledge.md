@@ -38,6 +38,36 @@ In this example instruction ```{apply, {...}}``` will be run directly after ```{
 
 ```
 
+Internal ERFI tools troubleshoting
+==================================
+
+generate_sys_config ambiguous values
+------------------------------------
+
+Given the following problem:
+
+```
+ ===> rebar3_generate_sys_config_common:512 [{{2023,10,4},{12,8,53}}] ->
+The following values in the config file are ambiguous:
+    Config option cowboy_swagger/global_spec is ambiguous:
+        dapp wants to set it to: #{info => 
+                                   title => "DAPP API",version => "1.0.0"},
+        teso wants to set it to: #{info =>
+                                   title => "Simulator API",version => "1.0.0"},
+```
+
+Solve it by adding config option into `config/template.sys.config` with desired value:
+
+```
+, { cowboy_swagger, [ {global_spec, 
+                              #{description => "Simulator API",title => "Simulator API",
+                                version => "1.0.0"},
+                      }]
+  }
+
+```
+
+
 Proper
 =======
 
