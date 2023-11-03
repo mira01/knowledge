@@ -38,6 +38,13 @@ In this example instruction ```{apply, {...}}``` will be run directly after ```{
 
 ```
 
+Disable sappan on CI
+--------------------
+
+set NO_SAPPAN: true
+
+in Jenkinsfile
+
 Internal ERFI tools troubleshoting
 ==================================
 
