@@ -107,6 +107,26 @@ Note the passed {include, "include"}: it is path to include directory, which is 
 It is also possible to pass some or all of: `{suite, "project_SUITE"}, {group, some_group}, {testcase, example_testcase}` to run desired test cases.
 Note that passing _testcase_ without _group_ will cause that `innit_per_group` *will not be called*.
 
+Erlang compiler
+===============
+
+To suppress specific warnings while running rebar3 run as 
+`ERL_COMPILER_OPTIONS='[nowarn_deprecated_function,nowarn_match_float_zero]' rebar3`
+
+Dialyzer
+========
+
+To load all types from dependencies add following to rebar.config:
+
+```
+{dialyzer, [
+  {warnings, [underspecs, unmatched_returns, error_handling, no_return, unknown]}
+  , {plt_apps, all_deps}
+]}.
+
+```
+
+
 Git
 ===
 
